@@ -1,0 +1,34 @@
+Jan 08, 2026 11:15:18 AM ai.glog.execute.workers.TriageAndRemediationCallableWorker call
+SEVERE: null
+java.lang.NullPointerException
+	at java.base/java.io.File.<init>(File.java:278)
+	at ai.glog.reporting.Sarif.relativizePath(Sarif.java:118)
+	at ai.glog.reporting.Sarif.getRelativePath(Sarif.java:103)
+	at ai.glog.reporting.Sarif.getAbsolutePath(Sarif.java:81)
+	at ai.glog.reporting.Sarif.getSink(Sarif.java:57)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.getSink(TriageAndRemediationCallableWorker.java:256)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:189)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:74)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Jan 08, 2026 11:15:18 AM ai.glog.execute.workers.TriageAndRemediationCallableWorker call
+SEVERE: null
+java.lang.NullPointerException
+	at java.base/java.io.File.<init>(File.java:278)
+	at ai.glog.reporting.Sarif.relativizePath(Sarif.java:118)
+	at ai.glog.reporting.Sarif.getRelativePath(Sarif.java:103)
+	at ai.glog.reporting.Sarif.getAbsolutePath(Sarif.java:81)
+	at ai.glog.reporting.Sarif.getSink(Sarif.java:57)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.getSink(TriageAndRemediationCallableWorker.java:256)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:189)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:74)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+

@@ -1,0 +1,91 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "97051b0c-29a0-3ec9-b888-81b650e0a205",
+              "name": "High-Risk Dockerfile Vulnerability: Lack of Non-Root User Specification",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe \"High-Risk Dockerfile Vulnerability: Lack of Non-Root User Specification\" is a security vulnerability in Docker where the Dockerfile does not specify a non-root user for running the container. This means that the container runs with root privileges, which can be a significant security risk. If an attacker manages to break out of the container, they would have root access to the host system, potentially leading to a full system compromise.\n\n## Security Concern\n\nRunning a Docker container as root is a security concern because it gives the container full control over the host system. This means that if an attacker manages to exploit a vulnerability in the container, they could potentially gain full control over the host system. This could lead to a variety of negative outcomes, such as data theft, data corruption, or even a full system shutdown.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always specify a non-root user in the Dockerfile using the `USER` directive. This ensures that the container runs with the privileges of that user, rather than with root privileges. Additionally, it is also recommended to follow the principle of least privilege, i.e., only give the container the minimum privileges it needs to function.\n\n## Source Code Fix Recommendation\n\nHere is a fix for the provided Dockerfile:\n\n```Dockerfile\nFROM apsl/circusbase:latest\n\n# Create a new user and group 'appuser' with no home directory, no shell,\n# and a user and group ID of 1000\nRUN groupadd -r appuser && useradd -r -g appuser -u 1000 -s /sbin/nologin -c \"Docker image user\" appuser\n\n# Switch to 'appuser'\nUSER appuser\n```\n\nThis Dockerfile creates a new user and group 'appuser' and then switches to that user. The container will now run with the privileges of 'appuser' instead of root.\n\n## References\n\n- [CWE-250: Execution with Unnecessary Privileges](https://cwe.mitre.org/data/definitions/250.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-250",
+                    "url": "https://cwe.mitre.org/data/definitions/250.html"
+                  }
+                ],
+                "severity": "HIGH",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-250"
+                ]
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "97051b0c-29a0-3ec9-b888-81b650e0a205",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "High-Risk Dockerfile Vulnerability: Lack of Non-Root User Specification"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Dockerfile",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1,
+                  "snippet": {
+                    "text": "FROM apsl/circusbase:latest"
+                  }
+                }
+              },
+              "message": {
+                "text": "Dockerfile"
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "3dcb0d80c8b2df24c02d3743035436f87fd22b84bc543af2b60f2ae281df0c22",
+            "glog-pfp-ruleFileCode/v1": "dbb51e8d1c0080528acfb870d1c9128ca1230534a5829ca900b008ff0d811334"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "dbb51e8d1c0080528acfb870d1c9128ca1230534a5829ca900b008ff0d811334"
+          }
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}
